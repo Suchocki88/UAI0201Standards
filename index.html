@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2.1 Standards Alignment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2em;
+        }
+
+        .header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .lesson-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+
+        .lesson-info div {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .intro-box {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #2196F3;
+            margin-bottom: 30px;
+        }
+
+        .selector-section {
+            margin-bottom: 30px;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .selector-section label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #667eea;
+            font-size: 1.1em;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 1em;
+            border: 2px solid #667eea;
+            border-radius: 6px;
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        select:hover {
+            border-color: #764ba2;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #764ba2;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .standards-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .standards-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .standard-section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #667eea;
+        }
+
+        .standard-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .standard-item {
+            background: #f8f9ff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border-left: 3px solid #764ba2;
+        }
+
+        .standard-code {
+            font-weight: 700;
+            color: #764ba2;
+            font-size: 1.05em;
+            margin-bottom: 8px;
+        }
+
+        .standard-description {
+            color: #555;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .alignment-note {
+            background: #e8f4f8;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 0.95em;
+            color: #0277bd;
+            margin-top: 10px;
+        }
+
+        .alignment-note strong {
+            color: #01579b;
+        }
+
+        .framework-note {
+            background: #fff3e0;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid #ff9800;
+            margin-top: 20px;
+            font-size: 0.95em;
+        }
+
+        .key-connections {
+            background: #f1f8e9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+            border-left: 4px solid #8bc34a;
+        }
+
+        .key-connections h3 {
+            color: #558b2f;
+            margin-bottom: 12px;
+        }
+
+        .key-connections ul {
+            padding-left: 20px;
+        }
+
+        .key-connections li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>📋 State Standards Alignment</h1>
+        <p class="subtitle">Lesson 2.1: The Old Way - Programming Rules</p>
+        <div class="lesson-info">
+            <div><strong>Chapter:</strong> 2</div>
+            <div><strong>Type:</strong> Lesson Day</div>
+            <div><strong>Duration:</strong> 50 minutes</div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="intro-box">
+            <p><strong>Lesson Focus:</strong> Understanding traditional programming through simple examples. Students learn how humans write step-by-step instructions for computers, exploring the power and fundamental limitations of explicit rule-based systems.</p>
+        </div>
+
+        <div class="selector-section">
+            <label for="state-select">Select Your State/Framework:</label>
+            <select id="state-select" onchange="showStandards()">
+                <option value="">-- Choose State Standards --</option>
+                <option value="texas">Texas (TEKS)</option>
+                <option value="california">California</option>
+                <option value="florida">Florida</option>
+                <option value="new-york">New York</option>
+                <option value="pennsylvania">Pennsylvania</option>
+                <option value="illinois">Illinois</option>
+                <option value="ohio">Ohio</option>
+                <option value="georgia">Georgia</option>
+                <option value="north-carolina">North Carolina</option>
+                <option value="michigan">Michigan</option>
+                <option value="virginia">Virginia</option>
+                <option value="washington">Washington</option>
+                <option value="mississippi">Mississippi</option>
+                <option value="c3">C3 Framework (Social Studies)</option>
+            </select>
+        </div>
+
+        <!-- Texas Standards -->
+        <div id="texas" class="standards-content">
+            <div class="standard-section">
+                <h2>Texas Essential Knowledge and Skills (TEKS)</h2>
+                
+                <div class="standard-item">
+                    <div class="standard-code">§112.34(c)(1)(E) - Technology Applications</div>
+                    <div class="standard-description">Identify, understand, and use appropriate digital learning terminology.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Students learn foundational terminology including "traditional programming," "algorithm," "deterministic," and "pseudocode"—essential digital literacy vocabulary for understanding how computers work.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">§112.34(c)(3)(A) - Critical Thinking and Problem Solving</div>
+                    <div class="standard-description">Evaluate the appropriateness of different tools for completing a task.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Students analyze when traditional programming is appropriate (calculators, traffic lights, games) versus when it fails (face recognition, pattern matching), developing judgment about tool selection.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">§112.34(c)(6)(A) - Computational Thinking</div>
+                    <div class="standard-description">Identify the steps required to complete a task, create algorithms using sequences, and verify the algorithms' reliability.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Through examples like sandwich-making and game rules, students practice breaking tasks into explicit steps, understanding how algorithms work, and recognizing when algorithms are reliable (rule-based tasks) versus unreliable (pattern recognition tasks).
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">§113.41(c)(1)(B) - Social Studies Skills</div>
+                    <div class="standard-description">Analyze and evaluate the validity of information, arguments, and counterarguments from primary and secondary sources for bias, propaganda, point of view, and frame of reference.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Students develop analytical thinking by evaluating the capabilities and limitations of different technological approaches, preparing them for later lessons on AI bias and societal impact.
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-connections">
+                <h3>Key Lesson Connections to TEKS</h3>
+                <ul>
+                    <li><strong>Sections B-D:</strong> Address computational thinking (6A) by walking through explicit step-by-step algorithms</li>
+                    <li><strong>Section E:</strong> Develops critical evaluation skills (3A) by analyzing when rule-based approaches fail</li>
+                    <li><strong>Section F:</strong> Builds foundation for social studies analysis (1B) of technological systems</li>
+                    <li><strong>Review Questions 2, 4, 6:</strong> Assess ability to evaluate tool appropriateness</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- California Standards -->
+        <div id="california" class="standards-content">
+            <div class="standard-section">
+                <h2>California Computer Science Standards</h2>
+                
+                <div class="standard-item">
+                    <div class="standard-code">6-8.Algorithms and Programming.1</div>
+                    <div class="standard-description">Compare and refine multiple algorithms for the same task.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Students compare traditional programming (explicit rules) with AI approaches (pattern learning), setting foundation for understanding different algorithmic approaches to the same problems.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">9-12.Computing Systems.3</div>
+                    <div class="standard-description">Demonstrate how computer systems process information by describing the interaction between hardware and software.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Lesson explains how computers process explicit instructions through deterministic rules, laying groundwork for understanding software fundamentals.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">9-12.Impacts of Computing.2</div>
+                    <div class="standard-description">Evaluate the ways that computing impacts personal, ethical, social, and economic practices.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Understanding limitations of rule-based systems prepares students to evaluate social impacts of AI versus traditional software, setting stage for ethics discussions in later chapters.
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-connections">
+                <h3>California Framework Connections</h3>
+                <ul>
+                    <li><strong>Algorithmic Thinking:</strong> Pseudocode examples build understanding of how algorithms structure problems</li>
+                    <li><strong>Abstraction:</strong> Students learn to distinguish between implementation (rules) and capability (what systems can do)</li>
+                    <li><strong>Critical Analysis:</strong> Evaluating when different computational approaches succeed or fail</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Florida Standards -->
+        <div id="florida" class="standards-content">
+            <div class="standard-section">
+                <h2>Florida Computer Science Standards</h2>
+                
+                <div class="standard-item">
+                    <div class="standard-code">SC.912.CS-CS.3.1</div>
+                    <div class="standard-description">Describe how different types of software systems are developed and used.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Lesson explicitly describes traditional programming development process through concrete examples (calculators, traffic lights, games), helping students understand one fundamental approach to software development.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">SC.912.CS-CP.2.2</div>
+                    <div class="standard-description">Describe how algorithm design and implementation affect program efficiency.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> "The Explosion Problem" (Section E) demonstrates how rule-based algorithms become inefficient as complexity increases, helping students understand algorithm design trade-offs.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">SC.912.CS-CP.2.3</div>
+                    <div class="standard-description">Evaluate algorithms according to their efficiency, correctness, and clarity.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Students evaluate traditional programming's strengths (correctness, clarity for rule-based tasks) and weaknesses (inability to handle pattern recognition), developing critical evaluation skills.
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-connections">
+                <h3>Florida Standards Integration</h3>
+                <ul>
+                    <li><strong>Computational Thinking:</strong> Breaking tasks into explicit steps builds algorithmic reasoning</li>
+                    <li><strong>System Design:</strong> Understanding when rule-based approaches work vs. fail informs design decisions</li>
+                    <li><strong>Problem Solving:</strong> Recognizing limitations helps students choose appropriate tools</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- New York Standards -->
+        <div id="new-york" class="standards-content">
+            <div class="standard-section">
+                <h2>New York Computer Science and Digital Fluency Standards</h2>
+                
+                <div class="standard-item">
+                    <div class="standard-code">9-12.CT.5</div>
+                    <div class="standard-description">Identify and describe a variety of programming languages and discuss their purposes and uses.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Lesson introduces the concept of programming languages through pseudocode examples, helping students understand that all traditional programming follows explicit rule-writing principles regardless of specific language.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">9-12.CT.8</div>
+                    <div class="standard-description">Develop a program using a programming language to demonstrate algorithmic thinking.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Pseudocode examples (traffic light, tic-tac-toe) demonstrate algorithmic thinking without requiring actual coding, making computational concepts accessible to all students.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">9-12.DL.5</div>
+                    <div class="standard-description">Transfer knowledge to explain the appropriate and effective use of digital tools to solve complex problems.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Students learn to evaluate when traditional programming is appropriate tool (predictable, rule-based tasks) versus when other approaches like AI are needed (pattern recognition).
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-connections">
+                <h3>Connection to NY Learning Standards</h3>
+                <ul>
+                    <li><strong>Critical Thinking:</strong> Analyzing tool appropriateness develops evaluative reasoning</li>
+                    <li><strong>Problem Solving:</strong> Understanding algorithmic limitations informs problem-solving strategies</li>
+                    <li><strong>Digital Literacy:</strong> Building vocabulary around programming concepts enhances digital fluency</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Pennsylvania Standards -->
+        <div id="pennsylvania" class="standards-content">
+            <div class="standard-section">
+                <h2>Pennsylvania Computer Science Standards</h2>
+                
+                <div class="standard-item">
+                    <div class="standard-code">15.4.8-12.E - Algorithms and Programming</div>
+                    <div class="standard-description">Use appropriate computational tools and techniques to create solutions to complex problems.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Lesson teaches students to distinguish when traditional programming (computational tool) is appropriate solution versus when alternative approaches are needed.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">15.4.8-12.B - Computing Systems</div>
+                    <div class="standard-description">Explain how hardware, software, and connectivity work together to support computing.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Understanding that computers follow explicit instructions (software) helps students grasp fundamental computing principles.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">CC.3.5.9-10.G - Literacy in Technical Subjects</div>
+                    <div class="standard-description">Translate quantitative or technical information expressed in words in a text into visual form and translate information expressed visually into words.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Pseudocode examples translate abstract programming concepts into understandable visual representations, building technical literacy.
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-connections">
+                <h3>Pennsylvania Standards Integration</h3>
+                <ul>
+                    <li><strong>Algorithmic Thinking:</strong> Step-by-step examples build logical reasoning skills</li>
+                    <li><strong>Technical Communication:</strong> Pseudocode bridges informal and formal technical language</li>
+                    <li><strong>Problem Analysis:</strong> Evaluating when approaches work develops analytical skills</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Illinois Standards -->
+        <div id="illinois" class="standards-content">
+            <div class="standard-section">
+                <h2>Illinois Computer Science Standards</h2>
+                
+                <div class="standard-item">
+                    <div class="standard-code">9-12.AP.10</div>
+                    <div class="standard-description">Systematically design and develop programs for broad audiences by incorporating feedback from users.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Understanding limitations of rule-based systems prepares students to recognize when user needs require different computational approaches (setting up machine learning introduction).
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">9-12.AP.13</div>
+                    <div class="standard-description">Analyze the way code segments work individually and in combination with others to transform data.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Pseudocode examples demonstrate how individual instructions combine to create complete algorithms, building understanding of program structure.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">9-12.IC.24</div>
+                    <div class="standard-description">Evaluate the ways computing impacts personal, ethical, social, economic, and cultural practices.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Understanding what computers can and cannot do through explicit rules lays foundation for evaluating social impacts of different computing approaches.
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-connections">
+                <h3>Illinois Framework Connections</h3>
+                <ul>
+                    <li><strong>Computational Thinking:</strong> Algorithm examples develop systematic problem-solving approaches</li>
+                    <li><strong>Systems Thinking:</strong> Understanding component interactions in rule-based systems</li>
+                    <li><strong>Critical Analysis:</strong> Evaluating tool capabilities and limitations</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Ohio Standards -->
+        <div id="ohio" class="standards-content">
+            <div class="standard-section">
+                <h2>Ohio Computer Science Standards</h2>
+                
+                <div class="standard-item">
+                    <div class="standard-code">ATP.A.9-10.2</div>
+                    <div class="standard-description">Identify and use data types appropriate to the solution of a problem.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Examples demonstrate how specific data types (IF-THEN conditions, numerical operations) are appropriate for rule-based problem solving.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">ATP.PD.9-10.2</div>
+                    <div class="standard-description">Evaluate and refine computational artifacts to make them more usable and accessible.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Understanding when traditional programming works vs. fails helps students evaluate what makes computational solutions effective for different use cases.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">IC.Cu.9-10.1</div>
+                    <div class="standard-description">Evaluate the beneficial and harmful effects computing has on people and communities.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Recognizing limitations of explicit rule-based systems prepares students for discussions about when automation helps vs. when it creates problems (setting up ethics chapters).
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-connections">
+                <h3>Ohio Standards Integration</h3>
+                <ul>
+                    <li><strong>Problem Decomposition:</strong> Breaking tasks into steps builds algorithmic thinking</li>
+                    <li><strong>Tool Selection:</strong> Understanding capabilities informs appropriate technology use</li>
+                    <li><strong>System Evaluation:</strong> Analyzing limitations develops critical assessment skills</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Georgia Standards -->
+        <div id="georgia" class="standards-content">
+            <div class="standard-section">
+                <h2>Georgia Computer Science Standards</h2>
+                
+                <div class="standard-item">
+                    <div class="standard-code">CS-IT-1.8</div>
+                    <div class="standard-description">Explore how algorithms are implemented in computer programs.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Lesson provides concrete examples of how algorithms (sandwich-making, traffic lights, games) translate into explicit computational instructions.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">CS-IT-1.10</div>
+                    <div class="standard-description">Analyze computational thinking concepts and their relationship to real-world situations.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Real-world examples (calculators, traffic control, games) demonstrate how computational thinking applies to everyday systems students encounter.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">SSCG24</div>
+                    <div class="standard-description">Analyze the impact of technology on Georgia, the United States, and the world.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Understanding how traditional programming works builds foundation for analyzing technological impact on society (developed further in later chapters on AI ethics and decision-making).
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-connections">
+                <h3>Georgia Framework Connections</h3>
+                <ul>
+                    <li><strong>Algorithmic Analysis:</strong> Evaluating when algorithms succeed vs. fail</li>
+                    <li><strong>Real-World Application:</strong> Connecting computational concepts to everyday technology</li>
+                    <li><strong>Social Studies Integration:</strong> Building toward technology impact analysis</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- North Carolina Standards -->
+        <div id="north-carolina" class="standards-content">
+            <div class="standard-section">
+                <h2>North Carolina Computer Science Standards</h2>
+                
+                <div class="standard-item">
+                    <div class="standard-code">B1.AP.11</div>
+                    <div class="standard-description">Explain different ways data can be manipulated, stored, and retrieved.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Traditional programming examples show how explicit rules manipulate data in predictable, deterministic ways.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">B1.AP.15</div>
+                    <div class="standard-description">Describe how computation can be automated using iterative processes.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Pseudocode examples demonstrate iteration (loops) and conditional logic in automated computational processes.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">B1.IC.20</div>
+                    <div class="standard-description">Explain the beneficial and harmful effects of computing innovations.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Understanding what traditional programming can and cannot do prepares students to evaluate beneficial effects (automation of rule-based tasks) and harmful effects (inability to handle nuanced pattern recognition).
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-connections">
+                <h3>North Carolina Standards Integration</h3>
+                <ul>
+                    <li><strong>Data Processing:</strong> Examples show how programs process information through explicit rules</li>
+                    <li><strong>Automation Concepts:</strong> Understanding when automation through rules is effective</li>
+                    <li><strong>Computing Impact:</strong> Foundation for evaluating technology's societal role</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Michigan Standards -->
+        <div id="michigan" class="standards-content">
+            <div class="standard-section">
+                <h2>Michigan Computer Science Standards</h2>
+                
+                <div class="standard-item">
+                    <div class="standard-code">6-8.AP.A.1</div>
+                    <div class="standard-description">Design and iteratively develop programs that combine control structures and use compound conditions.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Pseudocode examples demonstrate control structures (IF-THEN statements) and how they combine to create functional programs.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">9-12.AP.PD.4</div>
+                    <div class="standard-description">Evaluate and refine computational artifacts to make them more usable and accessible.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Students learn to evaluate when traditional programming approaches are usable (rule-based tasks) versus when they're not accessible solutions (pattern recognition).
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">9-12.IC.SI.1</div>
+                    <div class="standard-description">Analyze the impact of social and cultural backgrounds on the design of technologies.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Understanding that programmers must explicitly write all rules introduces the concept that human choices shape technology (developed more deeply in bias and ethics chapters).
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-connections">
+                <h3>Michigan Framework Connections</h3>
+                <ul>
+                    <li><strong>Control Structures:</strong> IF-THEN examples demonstrate logical flow in programs</li>
+                    <li><strong>System Evaluation:</strong> Analyzing tool effectiveness develops critical thinking</li>
+                    <li><strong>Technology Design:</strong> Foundation for understanding human role in creating systems</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Virginia Standards -->
+        <div id="virginia" class="standards-content">
+            <div class="standard-section">
+                <h2>Virginia Computer Science Standards</h2>
+                
+                <div class="standard-item">
+                    <div class="standard-code">CS.6-8.10</div>
+                    <div class="standard-description">Compare and contrast various software development approaches, including top-down, bottom-up, and user-centered.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Lesson introduces top-down approach (traditional programming starting with explicit rules) as contrast to bottom-up learning approach (AI discovering patterns from data, introduced in Lesson 2.2).
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">CS.6-8.14</div>
+                    <div class="standard-description">Analyze and debug algorithms that include sequencing, selection, and iteration.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Pseudocode examples walk through sequencing (step-by-step instructions), selection (IF-THEN statements), demonstrating how these elements create functional algorithms.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">CS.9-12.13</div>
+                    <div class="standard-description">Evaluate the effectiveness and efficiency of different algorithms to solve a problem.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Students evaluate effectiveness of rule-based algorithms for different problem types, recognizing where they excel (predictable tasks) and fail (pattern recognition).
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-connections">
+                <h3>Virginia Standards Integration</h3>
+                <ul>
+                    <li><strong>Algorithm Design:</strong> Understanding different approaches to creating computational solutions</li>
+                    <li><strong>Logical Reasoning:</strong> Analyzing how instructions combine to solve problems</li>
+                    <li><strong>Efficiency Analysis:</strong> Recognizing when approaches become impractical</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Washington Standards -->
+        <div id="washington" class="standards-content">
+            <div class="standard-section">
+                <h2>Washington Computer Science K-12 Learning Standards</h2>
+                
+                <div class="standard-item">
+                    <div class="standard-code">9-12.AP.A.01</div>
+                    <div class="standard-description">Create programs that include selection and iteration.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Pseudocode examples demonstrate selection (IF-THEN) structures, helping students understand program logic without requiring actual coding.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">9-12.AP.M.01</div>
+                    <div class="standard-description">Construct computational models that represent complex objects or systems.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Examples model how complex systems (traffic control, games) can be represented through explicit rules, while recognizing limitations of this approach.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">9-12.IC.SI.01</div>
+                    <div class="standard-description">Evaluate computational artifacts with regard to improving their beneficial effects and reducing harmful effects on society.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Understanding capabilities and limitations of traditional programming prepares students to evaluate when automation benefits society versus when it creates problems.
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-connections">
+                <h3>Washington Framework Connections</h3>
+                <ul>
+                    <li><strong>Computational Modeling:</strong> Representing real-world systems through explicit rules</li>
+                    <li><strong>Program Logic:</strong> Understanding how control structures create functionality</li>
+                    <li><strong>Societal Impact:</strong> Foundation for evaluating technology's role in society</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Mississippi Standards -->
+        <div id="mississippi" class="standards-content">
+            <div class="standard-section">
+                <h2>Mississippi College and Career Readiness Standards</h2>
+                
+                <div class="standard-item">
+                    <div class="standard-code">CS.9-12.1</div>
+                    <div class="standard-description">Analyze the impact of computing on society, including economic, social, ethical, and legal aspects.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Understanding how traditional programming works through explicit rules provides foundation for analyzing computing's impact on society—essential preparation for later chapters on AI ethics, bias, and decision-making systems.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">CS.9-12.4</div>
+                    <div class="standard-description">Describe how computational thinking concepts are applied to solving problems.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Through examples like sandwich-making, traffic lights, and game rules, students practice decomposing problems into explicit steps, understanding algorithmic sequences, and recognizing when rule-based thinking is effective versus when it fails.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">CS.9-12.6</div>
+                    <div class="standard-description">Implement algorithms that use sequencing, selection, and iteration to solve problems.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Pseudocode examples demonstrate sequencing (step-by-step instructions), selection (IF-THEN conditional statements), building understanding of how these structures create functional programs.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">CS.9-12.10</div>
+                    <div class="standard-description">Evaluate the effectiveness and efficiency of various algorithms to solve a given problem.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Students evaluate when traditional programming is effective (calculators, traffic control, games) versus ineffective (face recognition, pattern matching), developing critical evaluation skills and understanding the "explosion problem" where rule-based approaches become unmanageable.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">ELA.11-12.RI.4</div>
+                    <div class="standard-description">Determine the meaning of words and phrases as they are used in a text, including technical meanings.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Students learn foundational technical vocabulary including "traditional programming," "algorithm," "deterministic," "pseudocode," and "explicit rules"—essential terminology for digital literacy and technical communication.
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-connections">
+                <h3>Mississippi Framework Connections</h3>
+                <ul>
+                    <li><strong>Computational Thinking:</strong> Breaking tasks into explicit algorithmic steps develops systematic problem-solving</li>
+                    <li><strong>Algorithm Evaluation:</strong> Analyzing when rule-based approaches succeed vs. fail builds critical reasoning</li>
+                    <li><strong>Technical Literacy:</strong> Building vocabulary around programming concepts enhances career readiness</li>
+                    <li><strong>Problem Decomposition:</strong> Learning to break complex tasks into manageable steps</li>
+                    <li><strong>Social Impact Foundation:</strong> Understanding technology mechanisms prepares for analyzing societal effects</li>
+                </ul>
+            </div>
+
+            <div class="framework-note">
+                <strong>Career and Technical Education Connection:</strong> This lesson builds foundational understanding of how computer systems work, preparing students for careers in technology, business, healthcare, and any field where automation and AI play increasing roles. Understanding the difference between rule-based automation and pattern-recognition systems is essential workforce literacy.
+            </div>
+        </div>
+
+        <!-- C3 Framework -->
+        <div id="c3" class="standards-content">
+            <div class="standard-section">
+                <h2>C3 Framework for Social Studies</h2>
+                
+                <div class="standard-item">
+                    <div class="standard-code">D2.Eco.1.9-12</div>
+                    <div class="standard-description">Analyze how incentives influence choices that may result in policies with a range of costs and benefits for different groups.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Understanding technological capabilities and limitations helps students analyze how technology choices (automation through rules vs. pattern recognition) create different costs and benefits for different groups—foundation for later ethics discussions.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">D2.Civ.14.9-12</div>
+                    <div class="standard-description">Analyze historical, contemporary, and emerging means of changing societies, promoting the common good, and protecting rights.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Understanding how technology works (rule-based automation) provides foundation for analyzing how technological change affects society—essential for informed civic participation.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">D3.1.9-12</div>
+                    <div class="standard-description">Gather relevant information from multiple sources representing a wide range of views while using the origin, authority, structure, context, and corroborative value of sources to guide the selection.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Students learn to evaluate claims about technology capabilities by understanding underlying mechanisms, building analytical skills for evaluating technological information sources.
+                    </div>
+                </div>
+
+                <div class="standard-item">
+                    <div class="standard-code">D4.1.9-12</div>
+                    <div class="standard-description">Construct arguments using precise and knowledgeable claims, with evidence from multiple sources, while acknowledging counterclaims and evidentiary weaknesses.</div>
+                    <div class="alignment-note">
+                        <strong>Lesson Alignment:</strong> Understanding both strengths (deterministic, reliable for rule-based tasks) and limitations (explosion problem, pattern recognition) of traditional programming builds skills in acknowledging trade-offs and counterclaims.
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-connections">
+                <h3>C3 Framework Integration</h3>
+                <ul>
+                    <li><strong>Inquiry Arc:</strong> Lesson develops questioning skills about how technology works</li>
+                    <li><strong>Civic Competence:</strong> Understanding technology builds foundation for informed citizenship</li>
+                    <li><strong>Evidence-Based Reasoning:</strong> Evaluating tool capabilities develops analytical thinking</li>
+                    <li><strong>Contemporary Issues:</strong> Technology literacy essential for engaging with modern civic challenges</li>
+                </ul>
+            </div>
+
+            <div class="framework-note">
+                <strong>Note on Social Studies Integration:</strong> While this lesson focuses on technical concepts, it builds essential literacy for later chapters where students analyze AI's impact on hiring, criminal justice, democracy, and civic life—all core social studies themes. Understanding how technology works is prerequisite for evaluating its societal impact.
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+function showStandards() {
+    // Hide all standards content
+    const allContent = document.querySelectorAll('.standards-content');
+    allContent.forEach(content => {
+        content.classList.remove('active');
+    });
+    
+    // Show selected standards content
+    const selector = document.getElementById('state-select');
+    const selectedValue = selector.value;
+    
+    if (selectedValue) {
+        const selectedContent = document.getElementById(selectedValue);
+        if (selectedContent) {
+            selectedContent.classList.add('active');
+        }
+    }
+}
+</script>
+
+</body>
+</html>
