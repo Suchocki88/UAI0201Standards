@@ -3,177 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson 1.7: Intelligence All Around Us - State Standards Alignment</title>
+    <title>Lesson 2.1 Standards Alignment - Understanding AI</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
         }
-
         .container {
             max-width: 1000px;
             margin: 0 auto;
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
+            min-height: 100vh;
         }
-
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 30px;
-            text-align: center;
+            padding: 40px 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-
         .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin: 0 0 10px 0;
+            font-size: 2.2em;
         }
-
-        .header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
+        .header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.95;
+            margin-bottom: 5px;
         }
-
-        .lesson-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
-            margin-top: 15px;
+        .header .lesson-info {
             font-size: 0.95em;
+            opacity: 0.9;
+            font-style: italic;
         }
-
-        .lesson-info div {
-            background: rgba(255,255,255,0.2);
-            padding: 8px 12px;
-            border-radius: 5px;
-        }
-
         .content {
             padding: 30px;
         }
-
-        .selector-section {
+        .intro {
             background: #e8f4f8;
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            border: 2px solid #667eea;
-        }
-
-        .selector-label {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        .state-selector {
-            width: 100%;
-            padding: 15px;
-            font-size: 1rem;
-            border: 2px solid #ddd;
+            padding: 20px;
             border-radius: 8px;
+            border-left: 4px solid #2196F3;
+            margin-bottom: 30px;
+        }
+        .standards-selector {
+            margin-bottom: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .standards-selector label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #667eea;
+            font-size: 1.1em;
+        }
+        .standards-selector select {
+            width: 100%;
+            padding: 12px;
+            font-size: 1em;
+            border: 2px solid #667eea;
+            border-radius: 5px;
             background: white;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: border-color 0.3s;
         }
-
-        .state-selector:focus {
+        .standards-selector select:hover {
+            border-color: #764ba2;
+        }
+        .standards-selector select:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+            border-color: #764ba2;
+            box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.1);
         }
-
-        .standards-display {
+        .standards-content {
             display: none;
-            animation: fadeIn 0.5s ease-in;
+            animation: fadeIn 0.3s;
         }
-
+        .standards-content.active {
+            display: block;
+        }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
-        .standards-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .standards-header h2 {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-
-        .standards-section {
-            margin-bottom: 25px;
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 5px solid #667eea;
-        }
-
-        .standards-section h3 {
-            color: #667eea;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #667eea;
-            padding-bottom: 5px;
-        }
-
-        .standard-item {
+        .standard-section {
             background: white;
-            margin: 10px 0;
-            padding: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
             border-radius: 8px;
-            border: 1px solid #e0e0e0;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-left: 4px solid #667eea;
         }
-
-        .standard-code {
-            font-weight: bold;
+        .standard-section h2 {
             color: #667eea;
-            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-size: 1.5em;
         }
-
-        .standard-text {
-            margin-top: 5px;
+        .standard-section h3 {
+            color: #764ba2;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        .standard-item {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 3px solid #9c27b0;
+        }
+        .standard-code {
+            font-weight: 600;
+            color: #764ba2;
+            font-family: 'Courier New', monospace;
+        }
+        .standard-description {
+            margin-top: 8px;
             color: #555;
         }
-
-        .lesson-note {
+        .alignment-note {
             background: #fff3e0;
             padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
+            border-radius: 5px;
             border-left: 4px solid #ff9800;
+            margin-top: 15px;
+            font-style: italic;
         }
-
-        .lesson-note strong {
-            color: #e65100;
+        .lesson-mapping {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
         }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
+        .lesson-mapping strong {
+            color: #2e7d32;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        .print-button:hover {
+            background: #764ba2;
+        }
+        @media print {
+            .print-button, .standards-selector {
+                display: none;
             }
-            
-            .content {
-                padding: 20px;
+            .standards-content {
+                display: block !important;
             }
         }
     </style>
@@ -181,687 +184,705 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Lesson 1.7: Intelligence All Around Us</h1>
-            <p>State Standards Alignment</p>
-            <div class="lesson-info">
-                <div><strong>Type:</strong> Discussion Day</div>
-                <div><strong>Chapter:</strong> 1</div>
-                <div><strong>Duration:</strong> 50 minutes</div>
-            </div>
+            <h1>State Standards Alignment</h1>
+            <div class="subtitle">Understanding AI: A Conceptual Approach</div>
+            <div class="lesson-info">Chapter 2, Lesson 2.1: The Old Way - Programming Rules</div>
         </div>
-
+        
+        <button class="print-button" onclick="window.print()">🖨️ Print Standards</button>
+        
         <div class="content">
-            <div class="lesson-note">
-                <strong>About This Lesson:</strong> Lesson 1.7 is a discussion-based capstone for Chapter 1, emphasizing synthesis, oral communication, and critical analysis of AI's societal implications through collaborative discourse.
+            <div class="intro">
+                <p><strong>Lesson 2.1</strong> is a foundational Lesson Day introducing students to traditional programming through relatable examples. Students learn how computers follow explicit, step-by-step instructions and explore the strengths and limitations of rule-based programming. This lesson emphasizes logical thinking, procedural reasoning, understanding deterministic systems, and recognizing the boundary between what can and cannot be explicitly programmed—competencies addressed across multiple state and national standards frameworks.</p>
             </div>
-
-            <div class="selector-section">
-                <div class="selector-label">Select your state or standards framework:</div>
-                <select id="stateSelector" class="state-selector">
-                    <option value="">Choose your state...</option>
+            
+            <div class="standards-selector">
+                <label for="standards-select">Select Standards Framework:</label>
+                <select id="standards-select" onchange="showStandards(this.value)">
+                    <option value="">-- Choose State Standards --</option>
                     <option value="texas">Texas (TEKS)</option>
                     <option value="california">California</option>
                     <option value="florida">Florida</option>
-                    <option value="new_york">New York</option>
+                    <option value="newyork">New York</option>
                     <option value="pennsylvania">Pennsylvania</option>
                     <option value="illinois">Illinois</option>
                     <option value="ohio">Ohio</option>
                     <option value="georgia">Georgia</option>
-                    <option value="north_carolina">North Carolina</option>
+                    <option value="northcarolina">North Carolina</option>
                     <option value="michigan">Michigan</option>
                     <option value="virginia">Virginia</option>
                     <option value="washington">Washington</option>
                     <option value="mississippi">Mississippi</option>
-                    <option value="colorado">Colorado</option>
-                    <option value="ccss_math">Common Core State Standards (CCSS) - Math</option>
-                    <option value="ngss">Next Generation Science Standards (NGSS)</option>
+                    <option value="ccss">Common Core State Standards (CCSS) - ELA</option>
                     <option value="iste">ISTE Standards for Students</option>
                     <option value="csta">CSTA K-12 Computer Science Standards</option>
                     <option value="c3">C3 Framework for Social Studies</option>
                 </select>
             </div>
 
-            <div id="standardsDisplay" class="standards-display">
-                <!-- Standards content will be populated here -->
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const standardsData = {
-            texas: {
-                title: "Texas Essential Knowledge and Skills (TEKS)",
-                sections: {
-                    "Social Studies - Sociology": [
-                        {
-                            code: "Soc §113.46(c)(13)",
-                            text: "The student understands how social institutions affect the lives of individuals in society. The student is expected to analyze the impact of technology on society."
-                        },
-                        {
-                            code: "Soc §113.46(c)(19)",
-                            text: "The student understands the concept of social change. The student is expected to evaluate the effects of major historical events on social change."
-                        }
-                    ],
-                    "CTE - Information Technology": [
-                        {
-                            code: "IT §130.277(c)(6)(A)",
-                            text: "The student analyzes the impact of emerging technologies. The student is expected to evaluate the impact of artificial intelligence on society."
-                        },
-                        {
-                            code: "IT §130.277(c)(6)(C)",
-                            text: "The student is expected to analyze ethical and legal issues related to the use of information technology."
-                        }
-                    ],
-                    "Social Studies Skills": [
-                        {
-                            code: "§113.46(c)(20)(A)",
-                            text: "The student applies critical-thinking skills to organize and use information acquired through established research methodologies."
-                        },
-                        {
-                            code: "§113.46(c)(20)(D)",
-                            text: "The student is expected to analyze information by formulating questions, comparing sources, and drawing conclusions."
-                        }
-                    ],
-                    "English Language Arts - Speaking and Listening": [
-                        {
-                            code: "§110.38(b)(1)",
-                            text: "Developing and sustaining foundational language skills: listening, speaking, discussion, and thinking orally. Students engage in meaningful discourse and provide and accept constructive feedback."
-                        }
-                    ]
-                }
-            },
-            california: {
-                title: "California Education Standards",
-                sections: {
-                    "Social Studies - Principles of American Democracy": [
-                        {
-                            code: "12.10",
-                            text: "Students formulate questions about and defend their analyses of tensions within our constitutional democracy and the importance of maintaining a balance between individual rights and the common good."
-                        }
-                    ],
-                    "CTE - Information and Communication Technologies Sector": [
-                        {
-                            code: "ICT 4.2",
-                            text: "Analyze ethical implications of artificial intelligence in society."
-                        },
-                        {
-                            code: "ICT 8.1",
-                            text: "Use critical thinking to make informed decisions and solve problems in technology contexts."
-                        },
-                        {
-                            code: "ICT 9.3",
-                            text: "Demonstrate an understanding of emerging technologies and their applications."
-                        }
-                    ],
-                    "English Language Arts - Speaking and Listening": [
-                        {
-                            code: "SL.9-10.1",
-                            text: "Initiate and participate effectively in a range of collaborative discussions with diverse partners on grades 9-10 topics, texts, and issues."
-                        },
-                        {
-                            code: "SL.9-10.1.c",
-                            text: "Propel conversations by posing and responding to questions that relate the current discussion to broader themes or larger ideas."
-                        },
-                        {
-                            code: "SL.9-10.1.d",
-                            text: "Respond thoughtfully to diverse perspectives, summarize points of agreement and disagreement, and justify their own views."
-                        }
-                    ]
-                }
-            },
-            florida: {
-                title: "Florida Standards",
-                sections: {
-                    "Social Studies - Sociology": [
-                        {
-                            code: "SS.912.S.4.7",
-                            text: "Discuss the impact of social change on individuals and society."
-                        },
-                        {
-                            code: "SS.912.S.8.7",
-                            text: "Evaluate the impact of recent technological innovations on social change."
-                        }
-                    ],
-                    "Digital Literacy & Computer Science": [
-                        {
-                            code: "CS.912.IC-SI.1.1",
-                            text: "Explain the impacts of computing on societal issues."
-                        }
-                    ],
-                    "English Language Arts - Speaking and Listening": [
-                        {
-                            code: "LAFS.910.SL.1.1",
-                            text: "Initiate and participate effectively in a range of collaborative discussions with diverse partners on grades 9-10 topics, texts, and issues."
-                        },
-                        {
-                            code: "LAFS.910.SL.1.1.c",
-                            text: "Propel conversations by posing and responding to questions that probe reasoning and evidence."
-                        }
-                    ]
-                }
-            },
-            new_york: {
-                title: "New York State Standards",
-                sections: {
-                    "Social Studies Framework - Participation in Government": [
-                        {
-                            code: "12.G4a",
-                            text: "Civic engagement includes working individually or collectively to address issues and problems confronting society."
-                        }
-                    ],
-                    "Social Studies Practices": [
-                        {
-                            code: "A. Gathering, Using, and Interpreting Evidence",
-                            text: "Students identify, describe, and evaluate evidence about events from diverse sources."
-                        },
-                        {
-                            code: "E. Economics and Economic Systems",
-                            text: "Students analyze how technological innovations have affected economic decision-making."
-                        }
-                    ],
-                    "Computer Science & Digital Fluency": [
-                        {
-                            code: "9-12.IC.5",
-                            text: "Describe ways that complex computer systems can be designed for inclusivity and to mitigate unintended consequences."
-                        },
-                        {
-                            code: "9-12.IC.7",
-                            text: "Investigate the use of computer science in multiple fields."
-                        }
-                    ],
-                    "English Language Arts - Speaking and Listening": [
-                        {
-                            code: "SL.9-10.1",
-                            text: "Initiate and participate effectively in collaborative discussions, building on others' ideas and expressing their own clearly."
-                        }
-                    ]
-                }
-            },
-            pennsylvania: {
-                title: "Pennsylvania Academic Standards",
-                sections: {
-                    "Civics and Government": [
-                        {
-                            code: "5.3.12.B",
-                            text: "Examine how power and responsibility are distributed, shared and limited in the government of the United States."
-                        }
-                    ],
-                    "Economics": [
-                        {
-                            code: "6.4.12.E",
-                            text: "Explain how changes in technology affect businesses and individuals."
-                        }
-                    ],
-                    "Reading, Writing, Speaking and Listening": [
-                        {
-                            code: "1.6.11-12.A",
-                            text: "Listen critically and respond to others in small and large group situations."
-                        },
-                        {
-                            code: "1.6.11-12.B",
-                            text: "Participate in small and large group discussions and presentations."
-                        }
-                    ]
-                }
-            },
-            illinois: {
-                title: "Illinois Learning Standards",
-                sections: {
-                    "Social Science": [
-                        {
-                            code: "SS.IS.4.9-12",
-                            text: "Develop claims using evidence from multiple sources to answer essential questions."
-                        },
-                        {
-                            code: "SS.CV.5.9-12",
-                            text: "Evaluate citizens' individual and collective capacities to address social and political problems."
-                        }
-                    ],
-                    "Computer Science": [
-                        {
-                            code: "9-12.IC.SI.1",
-                            text: "Evaluate the ways computing impacts personal, ethical, social, economic, and cultural practices."
-                        },
-                        {
-                            code: "9-12.IC.C.1",
-                            text: "Evaluate computational artifacts to maximize their beneficial effects and minimize harmful effects on society."
-                        }
-                    ],
-                    "English Language Arts - Speaking and Listening": [
-                        {
-                            code: "SL.9-10.1",
-                            text: "Initiate and participate effectively in collaborative discussions on grades 9-10 topics, texts, and issues."
-                        }
-                    ]
-                }
-            },
-            ohio: {
-                title: "Ohio Learning Standards",
-                sections: {
-                    "Social Studies - Contemporary World Issues": [
-                        {
-                            code: "CWI.9",
-                            text: "Technological developments have cultural and economic effects throughout the world."
-                        }
-                    ],
-                    "Social Studies Skills & Methods": [
-                        {
-                            code: "SSM.1",
-                            text: "Conduct research and investigations by developing questions, generating potential sources, gathering relevant information, analyzing multiple perspectives, and drawing conclusions."
-                        }
-                    ],
-                    "Computer Science": [
-                        {
-                            code: "CS.HS.IC.1",
-                            text: "Evaluate the beneficial and harmful effects computing has had on society."
-                        }
-                    ],
-                    "English Language Arts - Speaking and Listening": [
-                        {
-                            code: "SL.9-10.1",
-                            text: "Initiate and participate effectively in collaborative discussions with diverse partners."
-                        }
-                    ]
-                }
-            },
-            georgia: {
-                title: "Georgia Standards of Excellence",
-                sections: {
-                    "Social Studies - Economics": [
-                        {
-                            code: "SSEF6",
-                            text: "The student will explain how productivity, economic growth, and future standards of living are influenced by investment in new technology."
-                        }
-                    ],
-                    "Information Technology": [
-                        {
-                            code: "IT-WD-5",
-                            text: "Students will evaluate emerging technologies and their impact on society."
-                        }
-                    ],
-                    "English Language Arts - Speaking and Listening": [
-                        {
-                            code: "ELAGSE9-10SL1",
-                            text: "Initiate and participate effectively in a range of collaborative discussions with diverse partners on grades 9-10 topics, texts, and issues."
-                        }
-                    ]
-                }
-            },
-            north_carolina: {
-                title: "North Carolina Standard Course of Study",
-                sections: {
-                    "Social Studies - Sociology": [
-                        {
-                            code: "SS.SO.4",
-                            text: "Analyze how social change impacts individuals, institutions, and society."
-                        }
-                    ],
-                    "Social Studies - Civics & Economics": [
-                        {
-                            code: "CE.E.1.1",
-                            text: "Analyze how economic choices influence employment opportunities and standards of living."
-                        }
-                    ],
-                    "Computer Science": [
-                        {
-                            code: "CS.IC.9-12.1",
-                            text: "Evaluate the beneficial and harmful effects that computational artifacts and innovations have on society, economy, and culture."
-                        }
-                    ],
-                    "English Language Arts - Speaking and Listening": [
-                        {
-                            code: "SL.9-10.1",
-                            text: "Initiate and participate effectively in collaborative discussions."
-                        }
-                    ]
-                }
-            },
-            michigan: {
-                title: "Michigan Academic Standards",
-                sections: {
-                    "Social Studies - Inquiry": [
-                        {
-                            code: "P1.1",
-                            text: "Deeply explore a range of informed perspectives on an issue or question to develop and refine questions for further investigation."
-                        },
-                        {
-                            code: "P4.2",
-                            text: "Construct arguments using claims and evidence from multiple sources."
-                        }
-                    ],
-                    "Social Studies - Public Discourse": [
-                        {
-                            code: "6.P4.1",
-                            text: "Engage in discussions that advocate for a position while recognizing and applying the perspectives of others."
-                        },
-                        {
-                            code: "6.P4.2",
-                            text: "Critique arguments related to issues and problems of the discipline with credible evidence."
-                        }
-                    ],
-                    "Computer Science": [
-                        {
-                            code: "HS.IC.SI.1",
-                            text: "Evaluate the ways computing impacts personal, ethical, social, economic, and cultural practices."
-                        }
-                    ]
-                }
-            },
-            virginia: {
-                title: "Virginia Standards of Learning",
-                sections: {
-                    "Social Studies - Virginia and United States Government": [
-                        {
-                            code: "GOVT.13",
-                            text: "The student will demonstrate knowledge of the role of government in the economy by analyzing how economic and societal changes impact government policies."
-                        }
-                    ],
-                    "Computer Science": [
-                        {
-                            code: "CS.6-8.IC.1",
-                            text: "Analyze and explain how computing technologies have changed the world and express how those technologies influence, and are influenced by, cultural practices."
-                        }
-                    ],
-                    "English Language Arts - Communication and Multimodal Literacies": [
-                        {
-                            code: "9.1",
-                            text: "The student will make planned multimodal, interactive presentations collaboratively and individually."
-                        },
-                        {
-                            code: "9.2",
-                            text: "The student will participate in and facilitate productive discussions with diverse partners."
-                        }
-                    ]
-                }
-            },
-            washington: {
-                title: "Washington State Learning Standards",
-                sections: {
-                    "Social Studies - Civics": [
-                        {
-                            code: "SSS5.9-12.2",
-                            text: "Analyze how individuals take action and advocate for change to address issues and problems in communities and systems."
-                        }
-                    ],
-                    "Social Studies - Economics": [
-                        {
-                            code: "SSS2.9-12.2",
-                            text: "Analyze how factors such as economic changes, technological innovations, environmental changes, and government action shape social and economic opportunities."
-                        }
-                    ],
-                    "Computer Science": [
-                        {
-                            code: "9-12.IC.C.01",
-                            text: "Evaluate the ways computing innovations impact culture, society, and individuals."
-                        }
-                    ],
-                    "English Language Arts - Speaking and Listening": [
-                        {
-                            code: "SL.9-10.1",
-                            text: "Initiate and participate effectively in collaborative discussions."
-                        }
-                    ]
-                }
-            },
-            mississippi: {
-                title: "Mississippi College and Career Readiness Standards",
-                sections: {
-                    "Social Studies - Sociology": [
-                        {
-                            code: "SOC.3",
-                            text: "Analyze the impact of social change, including technological innovations, on individuals, groups, and institutions."
-                        }
-                    ],
-                    "Social Studies - Government": [
-                        {
-                            code: "GOV.13",
-                            text: "Analyze contemporary policy issues and their impact on individuals and communities."
-                        }
-                    ],
-                    "Career and Technical Education - Information Technology": [
-                        {
-                            code: "IT.4.1",
-                            text: "Evaluate the impact of emerging technologies on businesses, industries, and society."
-                        }
-                    ],
-                    "English Language Arts - Speaking and Listening": [
-                        {
-                            code: "SL.9-10.1",
-                            text: "Initiate and participate effectively in a range of collaborative discussions with diverse partners on grades 9-10 topics, texts, and issues."
-                        },
-                        {
-                            code: "SL.9-10.1.c",
-                            text: "Propel conversations by posing and responding to questions that relate the current discussion to broader themes or larger ideas."
-                        }
-                    ]
-                }
-            },
-            colorado: {
-                title: "Colorado Academic Standards",
-                sections: {
-                    "Social Studies - Economics": [
-                        {
-                            code: "HS.2.1",
-                            text: "Analyze the economic reasons why choices are made and the consequences of those choices."
-                        },
-                        {
-                            code: "HS.2.3",
-                            text: "Analyze the role of innovation, entrepreneurship, and free market forces in economic growth."
-                        }
-                    ],
-                    "Social Studies - Civics": [
-                        {
-                            code: "HS.3.2",
-                            text: "Research, formulate positions, and engage in civil discourse about domestic and international policy."
-                        }
-                    ],
-                    "Computer Science": [
-                        {
-                            code: "HS.IC.1",
-                            text: "Evaluate the impact of computing on personal, economic, and social life."
-                        }
-                    ],
-                    "Reading, Writing, and Communicating - Oral Expression and Listening": [
-                        {
-                            code: "HS.1.1.a",
-                            text: "Engage in democratic discussions that value diverse perspectives with attention to peer and adult models."
-                        }
-                    ]
-                }
-            },
-            ccss_math: {
-                title: "Common Core State Standards - Mathematics",
-                sections: {
-                    "Standards for Mathematical Practice": [
-                        {
-                            code: "MP.3",
-                            text: "Construct viable arguments and critique the reasoning of others. Students justify their conclusions, communicate them to others, and respond to the arguments of others."
-                        },
-                        {
-                            code: "MP.6",
-                            text: "Attend to precision. Students try to communicate precisely to others and try to use clear definitions in discussion."
-                        }
-                    ],
-                    "High School - Statistics and Probability": [
-                        {
-                            code: "S-IC.6",
-                            text: "Evaluate reports based on data, making judgments about the validity of conclusions and considering the reasonableness of claims."
-                        }
-                    ]
-                }
-            },
-            ngss: {
-                title: "Next Generation Science Standards (NGSS)",
-                sections: {
-                    "Science and Engineering Practices": [
-                        {
-                            code: "Asking Questions",
-                            text: "Students formulate and refine questions that can be answered empirically and evaluate questions generated by others."
-                        },
-                        {
-                            code: "Analyzing and Interpreting Data",
-                            text: "Students analyze data systematically, either individually or collaboratively, and consider limitations of data analyses."
-                        },
-                        {
-                            code: "Engaging in Argument from Evidence",
-                            text: "Students construct, use, and present an oral argument supported by evidence to support or refute an explanation or a model for a phenomenon."
-                        },
-                        {
-                            code: "Obtaining, Evaluating, and Communicating Information",
-                            text: "Students evaluate the validity and reliability of multiple claims that appear in scientific and technical texts, or media reports, verifying the data when possible."
-                        }
-                    ]
-                }
-            },
-            iste: {
-                title: "ISTE Standards for Students",
-                sections: {
-                    "1. Empowered Learner": [
-                        {
-                            code: "1.d",
-                            text: "Students understand the fundamental concepts of technology operations, demonstrate the ability to choose, use and troubleshoot current technologies."
-                        }
-                    ],
-                    "3. Knowledge Constructor": [
-                        {
-                            code: "3.a",
-                            text: "Students plan and employ effective research strategies to locate information and other resources for their intellectual or creative pursuits."
-                        },
-                        {
-                            code: "3.b",
-                            text: "Students evaluate the accuracy, perspective, credibility and relevance of information, media, data or other resources."
-                        },
-                        {
-                            code: "3.d",
-                            text: "Students build knowledge by actively exploring real-world issues and problems, developing ideas and theories and pursuing answers and solutions."
-                        }
-                    ],
-                    "7. Global Collaborator": [
-                        {
-                            code: "7.c",
-                            text: "Students contribute constructively to project teams, assuming various roles and responsibilities to work effectively toward a common goal."
-                        }
-                    ]
-                }
-            },
-            csta: {
-                title: "CSTA K-12 Computer Science Standards",
-                sections: {
-                    "Impacts of Computing": [
-                        {
-                            code: "3A-IC-24",
-                            text: "Evaluate the ways computing impacts personal, ethical, social, economic, and cultural practices."
-                        },
-                        {
-                            code: "3A-IC-27",
-                            text: "Use tools and methods for collaboration on a project to increase connectivity of people in different cultures and career fields."
-                        },
-                        {
-                            code: "3B-IC-25",
-                            text: "Evaluate computational artifacts to maximize their beneficial effects and minimize harmful effects on society."
-                        }
-                    ],
-                    "Artificial Intelligence": [
-                        {
-                            code: "3B-AI-01",
-                            text: "Explain the capabilities and limitations of current artificial intelligence technologies."
-                        }
-                    ]
-                }
-            },
-            c3: {
-                title: "C3 Framework - College, Career, and Civic Life (National)",
-                sections: {
-                    "Dimension 1 - Developing Questions and Planning Inquiries": [
-                        {
-                            code: "D1.2.9-12",
-                            text: "Explain points of agreement and disagreement experts have about interpretations and applications of disciplinary concepts and ideas associated with a compelling question."
-                        },
-                        {
-                            code: "D1.5.9-12",
-                            text: "Determine the kinds of sources that will be helpful in answering compelling and supporting questions, taking into consideration multiple points of view represented in the sources."
-                        }
-                    ],
-                    "Dimension 2 - Economics": [
-                        {
-                            code: "D2.Eco.1.9-12",
-                            text: "Analyze how incentives influence choices that may result in policies with a range of costs and benefits for different groups."
-                        },
-                        {
-                            code: "D2.Eco.14.9-12",
-                            text: "Analyze how technological innovations have affected economic decision-making and behaviors."
-                        }
-                    ],
-                    "Dimension 3 - Evaluating Sources and Using Evidence": [
-                        {
-                            code: "D3.1.9-12",
-                            text: "Gather relevant information from multiple sources representing a wide range of views while using the origin, authority, structure, context, and corroborative value of the sources to guide the selection."
-                        },
-                        {
-                            code: "D3.3.9-12",
-                            text: "Identify evidence that draws information directly and substantively from multiple sources to detect inconsistencies in evidence in order to revise or strengthen claims."
-                        }
-                    ],
-                    "Dimension 4 - Communicating Conclusions and Taking Informed Action": [
-                        {
-                            code: "D4.1.9-12",
-                            text: "Construct arguments using precise and knowledgeable claims, with evidence from multiple sources, while acknowledging counterclaims and evidentiary weaknesses."
-                        },
-                        {
-                            code: "D4.3.9-12",
-                            text: "Present adaptations of arguments and explanations that feature evocative ideas and perspectives on issues and topics to reach a range of audiences and venues outside the classroom."
-                        },
-                        {
-                            code: "D4.7.9-12",
-                            text: "Assess options for individual and collective action to address local, regional, and global problems by engaging in self-reflection, strategy identification, and complex causal reasoning."
-                        }
-                    ]
-                }
-            }
-        };
-
-        document.getElementById('stateSelector').addEventListener('change', function() {
-            const selectedState = this.value;
-            const displayDiv = document.getElementById('standardsDisplay');
-            
-            if (selectedState && standardsData[selectedState]) {
-                displayStandards(selectedState);
-                displayDiv.style.display = 'block';
-            } else {
-                displayDiv.style.display = 'none';
-            }
-        });
-
-        function displayStandards(state) {
-            const data = standardsData[state];
-            const displayDiv = document.getElementById('standardsDisplay');
-            
-            let html = `
-                <div class="standards-header">
-                    <h2>${data.title}</h2>
-                    <p>Standards addressed in Lesson 1.7</p>
+            <!-- Texas TEKS -->
+            <div id="texas" class="standards-content">
+                <div class="standard-section">
+                    <h2>Texas Essential Knowledge and Skills (TEKS)</h2>
+                    
+                    <div class="alignment-note">
+                        Lesson 2.1 addresses critical thinking, logical reasoning, and technology literacy standards through the exploration of how traditional programming works and its limitations.
+                    </div>
+                    
+                    <h3>English Language Arts</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">ELA.110.38.b.5.F</div>
+                        <div class="standard-description">Make inferences and use evidence to support understanding.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students make inferences about which tasks are suited for traditional programming by analyzing examples and using evidence from the lesson to support their reasoning.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">ELA.110.38.b.6.C</div>
+                        <div class="standard-description">Use text evidence to support an appropriate response.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Review questions require students to reference specific examples from the lesson (sandwich-making, calculator, cat recognition) to support their answers about programming concepts.</div>
+                    </div>
+                    
+                    <h3>Technology Applications</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">TA.126.33.c.1.B</div>
+                        <div class="standard-description">Analyze the relationship between technology and society in the economy, politics, and the environment.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students explore how traditional programming enables calculators, traffic lights, and other societal infrastructure, understanding the foundational role of explicit programming in modern technology.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">TA.126.33.c.4.A</div>
+                        <div class="standard-description">Demonstrate an understanding of algorithms and their practical application.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students examine explicit algorithms through pseudocode examples (sandwich-making, calculator operations, traffic lights, game rules), understanding how step-by-step instructions create predictable outcomes.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">TA.126.33.c.5.A</div>
+                        <div class="standard-description">Implement problem-solving strategies with appropriate tools.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students learn to recognize when traditional programming is the appropriate tool for problem-solving (rule-based, predictable tasks) versus when it faces limitations (pattern recognition, nuanced tasks).</div>
+                    </div>
                 </div>
-            `;
+            </div>
             
-            for (const [sectionName, standards] of Object.entries(data.sections)) {
-                html += `
-                    <div class="standards-section">
-                        <h3>${sectionName}</h3>
-                `;
-                
-                standards.forEach(standard => {
-                    html += `
-                        <div class="standard-item">
-                            <div class="standard-code">${standard.code}</div>
-                            <div class="standard-text">${standard.text}</div>
-                        </div>
-                    `;
-                });
-                
-                html += `</div>`;
+            <!-- California Standards -->
+            <div id="california" class="standards-content">
+                <div class="standard-section">
+                    <h2>California Common Core State Standards</h2>
+                    
+                    <div class="alignment-note">
+                        Lesson 2.1 addresses reading comprehension, analytical thinking, and technology standards through exploration of computational thinking and algorithmic reasoning.
+                    </div>
+                    
+                    <h3>English Language Arts - Reading: Informational Text</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">CCSS.ELA-LITERACY.RI.9-10.1</div>
+                        <div class="standard-description">Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students cite specific examples from the lesson (explicit rules for calculators vs. the impossibility of rules for cat recognition) to support their understanding of programming limitations.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">CCSS.ELA-LITERACY.RI.9-10.3</div>
+                        <div class="standard-description">Analyze how the author unfolds an analysis or series of ideas or events, including the order in which the points are made, how they are introduced and developed, and the connections that are drawn between them.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> The lesson systematically builds from simple examples (sandwich-making) to the power of explicit rules (calculators, traffic lights) to the fundamental limitations (cat recognition, chess), helping students understand the logical progression of traditional programming concepts.</div>
+                    </div>
+                    
+                    <h3>Career Technical Education Standards</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">CTE.IT.1.1</div>
+                        <div class="standard-description">Understand the functions and purposes of various computing devices.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students learn how traditional programming powers various computing devices (calculators, traffic control systems, game programs) by following explicit instructions.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">CTE.IT.4.1</div>
+                        <div class="standard-description">Demonstrate an understanding of the fundamentals of programming and computer science.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students explore fundamental programming concepts including algorithms, deterministic systems, explicit instructions, conditional logic (IF/THEN), and the relationship between code and outcomes.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Florida Standards -->
+            <div id="florida" class="standards-content">
+                <div class="standard-section">
+                    <h2>Florida Standards</h2>
+                    
+                    <div class="alignment-note">
+                        Lesson 2.1 addresses Language Arts and Digital Literacy standards through analytical reading, logical reasoning, and understanding computational systems.
+                    </div>
+                    
+                    <h3>Language Arts Standards</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">LAFS.910.RI.1.1</div>
+                        <div class="standard-description">Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students analyze lesson examples to understand when traditional programming succeeds (calculator operations) versus when it fails (recognizing cats), citing specific evidence to support their conclusions.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">LAFS.910.RI.1.3</div>
+                        <div class="standard-description">Analyze how the author unfolds an analysis or series of ideas or events.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students follow the logical progression from understanding what traditional programming is, to where it excels, to recognizing its fundamental limitations, building conceptual understanding systematically.</div>
+                    </div>
+                    
+                    <h3>Digital Literacy Standards</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">SS.912.C.2.10</div>
+                        <div class="standard-description">Monitor current public issues in Florida, the United States, and the world.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students explore the technological foundations of current public issues related to automation, algorithmic decision-making, and the difference between rule-based and learning-based systems.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">HE.912.B.4.4</div>
+                        <div class="standard-description">Use effective communication skills in various contexts.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Through written responses and short-answer questions, students practice communicating technical concepts clearly, explaining programming limitations and providing real-world examples.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- New York Standards -->
+            <div id="newyork" class="standards-content">
+                <div class="standard-section">
+                    <h2>New York State Next Generation Learning Standards</h2>
+                    
+                    <div class="alignment-note">
+                        Lesson 2.1 addresses ELA and Computer Science & Digital Fluency standards through analytical reading, logical reasoning, and understanding computational systems.
+                    </div>
+                    
+                    <h3>English Language Arts</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">11-12R1</div>
+                        <div class="standard-description">Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students cite lesson examples to analyze the capabilities and limitations of traditional programming, making inferences about which tasks can be explicitly programmed.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">11-12R3</div>
+                        <div class="standard-description">Analyze a complex set of ideas or sequence of events and explain how specific individuals, ideas, or events interact and develop.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students analyze how programming concepts build sequentially: from explicit instructions, to deterministic outcomes, to the recognition of fundamental limitations, understanding how these ideas interact.</div>
+                    </div>
+                    
+                    <h3>Computer Science and Digital Fluency</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">9-12.CT.4</div>
+                        <div class="standard-description">Implement a program using a combination of student-defined and third-party functions to organize the computation.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> While not implementing programs directly, students develop conceptual understanding of how programs are organized through functions and explicit instructions, preparing them for computational thinking.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">9-12.IC.1</div>
+                        <div class="standard-description">Evaluate the impact of computing technologies on equity, access, and influence in a global society.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students explore how traditional programming creates the infrastructure of modern society (calculators, traffic systems, automated processes), understanding its role in technological development and social systems.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pennsylvania Standards -->
+            <div id="pennsylvania" class="standards-content">
+                <div class="standard-section">
+                    <h2>Pennsylvania Core Standards</h2>
+                    
+                    <div class="alignment-note">
+                        Lesson 2.1 addresses reading comprehension, analytical thinking, and technology standards through exploration of algorithmic thinking and computational systems.
+                    </div>
+                    
+                    <h3>English Language Arts</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">CC.1.2.11-12.B</div>
+                        <div class="standard-description">Cite strong and thorough textual evidence to support analysis of what the text says explicitly, as well as inferences and conclusions based on and related to an author's implicit and explicit assumptions and beliefs.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students analyze lesson content to understand explicit capabilities of traditional programming and make inferences about its limitations based on provided examples.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">CC.1.2.11-12.C</div>
+                        <div class="standard-description">Analyze the interaction and development of a complex set of ideas, sequence of events, or specific individuals over the course of a text.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students trace how programming concepts develop from simple examples (sandwich-making) through applications (calculators, games) to recognition of limitations (cat recognition, chess).</div>
+                    </div>
+                    
+                    <h3>Science and Technology Standards</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">3.4.10-12.A</div>
+                        <div class="standard-description">Explain how sciences and technologies are limited in their effects and influences on society.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students explore the fundamental limitations of traditional programming technology—it can only solve problems we can explicitly describe—understanding technological boundaries.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Illinois Standards -->
+            <div id="illinois" class="standards-content">
+                <div class="standard-section">
+                    <h2>Illinois Learning Standards</h2>
+                    
+                    <div class="alignment-note">
+                        Lesson 2.1 addresses reading comprehension, critical thinking, and technology literacy through exploration of algorithmic reasoning and computational thinking.
+                    </div>
+                    
+                    <h3>English Language Arts</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">11-12.RI.1</div>
+                        <div class="standard-description">Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students cite specific programming examples to support their analysis of when traditional programming works well versus when it faces fundamental limitations.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">11-12.RI.3</div>
+                        <div class="standard-description">Analyze a complex set of ideas or sequence of events and explain how specific individuals, ideas, or events interact and develop over the course of the text.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students analyze how concepts build from explicit instructions to deterministic systems to recognition of limitations, understanding the logical structure of programming concepts.</div>
+                    </div>
+                    
+                    <h3>Computer Science</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">11-12.CS.HS.1</div>
+                        <div class="standard-description">Explain how abstractions hide the underlying implementation details of computing systems embedded in everyday objects.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students explore how traditional programming creates systems like calculators and traffic lights, understanding that complex instructions underlie simple-seeming automated behaviors.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ohio Standards -->
+            <div id="ohio" class="standards-content">
+                <div class="standard-section">
+                    <h2>Ohio Learning Standards</h2>
+                    
+                    <div class="alignment-note">
+                        Lesson 2.1 addresses reading comprehension, analytical thinking, and technology standards through exploration of computational systems and algorithmic reasoning.
+                    </div>
+                    
+                    <h3>English Language Arts</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">RI.11-12.1</div>
+                        <div class="standard-description">Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students use lesson examples to support their understanding of programming capabilities and limitations, citing evidence from specific scenarios.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">RI.11-12.3</div>
+                        <div class="standard-description">Analyze a complex set of ideas or sequence of events and explain how specific individuals, ideas, or events interact and develop over the course of the text.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students trace the development of programming concepts from basic instructions through applications to recognition of fundamental limitations.</div>
+                    </div>
+                    
+                    <h3>Technology</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">T.9-12.2</div>
+                        <div class="standard-description">Analyze a problem and then design, develop and implement a solution using technology.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students learn to analyze which problems are suitable for traditional programming solutions (rule-based, predictable) versus those requiring different approaches (pattern recognition, nuanced tasks).</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Georgia Standards -->
+            <div id="georgia" class="standards-content">
+                <div class="standard-section">
+                    <h2>Georgia Standards of Excellence</h2>
+                    
+                    <div class="alignment-note">
+                        Lesson 2.1 addresses reading comprehension, critical thinking, and technology literacy through exploration of computational thinking and algorithmic reasoning.
+                    </div>
+                    
+                    <h3>English Language Arts</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">ELAGSE11-12RI1</div>
+                        <div class="standard-description">Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students cite lesson examples to analyze programming capabilities, making inferences about which tasks can be solved with explicit rules.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">ELAGSE11-12RI3</div>
+                        <div class="standard-description">Analyze a complex set of ideas or sequence of events and explain how specific individuals, ideas, or events interact and develop over the course of the text.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students follow how programming concepts develop systematically: from explicit instructions to practical applications to recognition of fundamental limitations.</div>
+                    </div>
+                    
+                    <h3>Computer Science</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">IT-CS-1</div>
+                        <div class="standard-description">Demonstrate an understanding of the fundamental concepts, principles, and skills of computer science.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students learn fundamental programming concepts including algorithms, deterministic systems, conditional logic, and the boundary between programmable and non-programmable tasks.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- North Carolina Standards -->
+            <div id="northcarolina" class="standards-content">
+                <div class="standard-section">
+                    <h2>North Carolina Standard Course of Study</h2>
+                    
+                    <div class="alignment-note">
+                        Lesson 2.1 addresses reading comprehension, analytical thinking, and technology standards through exploration of computational systems and logical reasoning.
+                    </div>
+                    
+                    <h3>English Language Arts</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">RI.11-12.1</div>
+                        <div class="standard-description">Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students analyze lesson examples to understand programming capabilities and cite evidence about which tasks are suited for traditional programming.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">RI.11-12.3</div>
+                        <div class="standard-description">Analyze a complex set of ideas or sequence of events and explain how specific individuals, ideas, or events interact and develop over the course of the text.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students trace the systematic development of programming concepts from basic instructions through practical applications to fundamental limitations.</div>
+                    </div>
+                    
+                    <h3>Computer Science</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">CS.9-12.1</div>
+                        <div class="standard-description">Understand how to use computers to explore, investigate, model, and communicate.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students explore how traditional programming enables computational exploration through explicit instructions and deterministic algorithms.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Michigan Standards -->
+            <div id="michigan" class="standards-content">
+                <div class="standard-section">
+                    <h2>Michigan K-12 Standards</h2>
+                    
+                    <div class="alignment-note">
+                        Lesson 2.1 addresses reading comprehension, critical thinking, and technology literacy through exploration of algorithmic reasoning and computational thinking.
+                    </div>
+                    
+                    <h3>English Language Arts</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">CCSS.ELA-LITERACY.RI.11-12.1</div>
+                        <div class="standard-description">Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students cite specific examples from the lesson to support their analysis of when traditional programming succeeds versus when it faces limitations.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">CCSS.ELA-LITERACY.RI.11-12.3</div>
+                        <div class="standard-description">Analyze a complex set of ideas or sequence of events and explain how specific individuals, ideas, or events interact and develop over the course of the text.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students follow the logical progression from understanding explicit instructions to recognizing the fundamental limitation that programmers can only code what they can explicitly describe.</div>
+                    </div>
+                    
+                    <h3>Technology Standards</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">8.1.2</div>
+                        <div class="standard-description">Understand how technology impacts society and daily life.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students explore how traditional programming creates societal infrastructure (calculators, traffic systems, automated processes), understanding the foundational role of explicit algorithms in daily life.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Virginia Standards -->
+            <div id="virginia" class="standards-content">
+                <div class="standard-section">
+                    <h2>Virginia Standards of Learning</h2>
+                    
+                    <div class="alignment-note">
+                        Lesson 2.1 addresses reading comprehension, analytical thinking, and technology standards through exploration of computational systems and logical reasoning.
+                    </div>
+                    
+                    <h3>English Language Arts</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">11.4</div>
+                        <div class="standard-description">The student will read and analyze a variety of informational texts.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students read and analyze informational text about traditional programming, drawing conclusions about its capabilities and limitations through structured examples.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">11.5</div>
+                        <div class="standard-description">The student will read and analyze a variety of informational texts to determine main idea and supporting details.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students identify the main idea (traditional programming follows explicit rules and has fundamental limitations) and supporting details (specific examples of where it succeeds and fails).</div>
+                    </div>
+                    
+                    <h3>Computer Science</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">CS.9-12.IC.1</div>
+                        <div class="standard-description">Analyze how computing technologies have changed society and individual culture.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students explore how traditional programming enabled the technological infrastructure of modern society, from calculators to traffic control systems.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Washington Standards -->
+            <div id="washington" class="standards-content">
+                <div class="standard-section">
+                    <h2>Washington State K-12 Learning Standards</h2>
+                    
+                    <div class="alignment-note">
+                        Lesson 2.1 addresses ELA and Computer Science standards through analytical reading, logical reasoning, and understanding computational systems.
+                    </div>
+                    
+                    <h3>English Language Arts</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">11-12.RI.1</div>
+                        <div class="standard-description">Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students cite lesson examples to support their analysis of programming capabilities, making inferences about the boundary between programmable and non-programmable tasks.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">11-12.RI.3</div>
+                        <div class="standard-description">Analyze a complex set of ideas or sequence of events and explain how specific individuals, ideas, or events interact and develop over the course of the text.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students trace how programming concepts build systematically from explicit instructions to practical applications to recognition of fundamental limitations.</div>
+                    </div>
+                    
+                    <h3>Computer Science</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">CS.9-12.AP.1</div>
+                        <div class="standard-description">Use basic algorithmic and programming language constructs to solve computational problems.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students develop conceptual understanding of algorithmic constructs (sequences, conditionals, loops) through pseudocode examples, preparing them for computational problem-solving.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mississippi Standards -->
+            <div id="mississippi" class="standards-content">
+                <div class="standard-section">
+                    <h2>Mississippi College and Career Readiness Standards</h2>
+                    
+                    <div class="alignment-note">
+                        Lesson 2.1 addresses reading comprehension, critical thinking, and technology literacy through exploration of computational thinking and algorithmic reasoning.
+                    </div>
+                    
+                    <h3>English Language Arts</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">RI.11-12.1</div>
+                        <div class="standard-description">Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students analyze lesson content, citing specific examples (calculator operations vs. cat recognition) to support their understanding of programming capabilities and limitations.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">RI.11-12.3</div>
+                        <div class="standard-description">Analyze a complex set of ideas or sequence of events and explain how specific individuals, ideas, or events interact and develop over the course of the text.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students follow the systematic development of programming concepts: from explicit instructions to deterministic outcomes to recognition that we can only program what we can explicitly describe.</div>
+                    </div>
+                    
+                    <h3>Speaking and Listening</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">SL.11-12.1</div>
+                        <div class="standard-description">Initiate and participate effectively in a range of collaborative discussions with diverse partners on grades 11-12 topics, texts, and issues, building on others' ideas and expressing their own clearly and persuasively.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students engage in discussions about programming concepts, sharing insights about when traditional programming works well versus when it faces limitations, building collective understanding.</div>
+                    </div>
+                    
+                    <h3>Career and Technical Education</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">IT.1.1</div>
+                        <div class="standard-description">Demonstrate an understanding of the fundamentals of information technology systems.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students learn fundamental concepts of how computing systems work through traditional programming: explicit instructions, deterministic outcomes, conditional logic, and algorithmic thinking.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Common Core State Standards -->
+            <div id="ccss" class="standards-content">
+                <div class="standard-section">
+                    <h2>Common Core State Standards - English Language Arts</h2>
+                    
+                    <div class="alignment-note">
+                        Lesson 2.1 addresses reading comprehension, analytical thinking, and speaking/listening standards through exploration of computational concepts and logical reasoning.
+                    </div>
+                    
+                    <h3>Reading: Informational Text</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">CCSS.ELA-LITERACY.RI.11-12.1</div>
+                        <div class="standard-description">Cite strong and thorough textual evidence to support analysis of what the text says explicitly as well as inferences drawn from the text, including determining where the text leaves matters uncertain.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students cite specific examples from the lesson to support their analysis of programming capabilities: calculators work perfectly because rules are explicit, but cat recognition fails because rules can't capture all variations.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">CCSS.ELA-LITERACY.RI.11-12.3</div>
+                        <div class="standard-description">Analyze a complex set of ideas or sequence of events and explain how specific individuals, ideas, or events interact and develop over the course of the text.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students trace how programming concepts build systematically: from understanding explicit instructions, to seeing where they excel, to recognizing fundamental limitations, understanding the logical structure.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">CCSS.ELA-LITERACY.RI.11-12.7</div>
+                        <div class="standard-description">Integrate and evaluate multiple sources of information presented in different media or formats as well as in words in order to address a question or solve a problem.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students integrate information from multiple programming examples (pseudocode, descriptions, real-world applications) to develop comprehensive understanding of traditional programming.</div>
+                    </div>
+                    
+                    <h3>Writing</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">CCSS.ELA-LITERACY.W.11-12.2</div>
+                        <div class="standard-description">Write informative/explanatory texts to examine and convey complex ideas, concepts, and information clearly and accurately.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Review question 7 requires students to explain complex programming concepts in writing, articulating why certain tasks resist explicit rule-based programming.</div>
+                    </div>
+                    
+                    <h3>Speaking and Listening</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">CCSS.ELA-LITERACY.SL.11-12.1</div>
+                        <div class="standard-description">Initiate and participate effectively in a range of collaborative discussions, building on others' ideas and expressing their own clearly and persuasively.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Class discussions about programming concepts require students to build on each other's understanding, sharing insights about when traditional programming works versus when it faces limitations.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ISTE Standards -->
+            <div id="iste" class="standards-content">
+                <div class="standard-section">
+                    <h2>ISTE Standards for Students</h2>
+                    
+                    <div class="alignment-note">
+                        Lesson 2.1 addresses computational thinking, knowledge construction, and critical thinking through exploration of algorithmic reasoning and technological systems.
+                    </div>
+                    
+                    <h3>5. Computational Thinker</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">5a</div>
+                        <div class="standard-description">Students formulate problem definitions suited for technology-assisted methods such as data analysis, abstract models and algorithmic thinking in exploring and finding solutions.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students learn to recognize which problems are suited for traditional programming (rule-based, predictable) versus those requiring different approaches, developing problem classification skills.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">5c</div>
+                        <div class="standard-description">Students break problems into component parts, extract key information, and develop descriptive models to understand complex systems or facilitate problem-solving.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students analyze how traditional programming breaks tasks into explicit steps (sandwich-making example, calculator operations), understanding systematic problem decomposition.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">5d</div>
+                        <div class="standard-description">Students understand how automation works and use algorithmic thinking to develop a sequence of steps to create and test automated solutions.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students explore how automation through traditional programming requires explicit, step-by-step instructions and deterministic logic, understanding the foundations of automated systems.</div>
+                    </div>
+                    
+                    <h3>3. Knowledge Constructor</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">3b</div>
+                        <div class="standard-description">Students evaluate the accuracy, perspective, credibility and relevance of information, media, data or other resources.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students evaluate programming examples to determine which accurately represent scenarios where traditional programming succeeds versus where it faces fundamental limitations.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">3d</div>
+                        <div class="standard-description">Students build knowledge by actively exploring real-world issues and problems, developing ideas and theories and pursuing answers and solutions.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students explore real-world applications of traditional programming (calculators, traffic lights, games) to build understanding of how explicit algorithms create functional systems.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CSTA Standards -->
+            <div id="csta" class="standards-content">
+                <div class="standard-section">
+                    <h2>CSTA K-12 Computer Science Standards</h2>
+                    
+                    <div class="alignment-note">
+                        Lesson 2.1 addresses algorithmic thinking, computational problem-solving, and understanding of computing systems through exploration of traditional programming concepts.
+                    </div>
+                    
+                    <h3>Algorithms and Programming</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">3A-AP-13</div>
+                        <div class="standard-description">Create prototypes that use algorithms to solve computational problems by leveraging prior student knowledge and personal interests.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> While not creating programs directly, students develop conceptual understanding of how algorithms solve problems through explicit instructions, preparing them for later implementation.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">3A-AP-15</div>
+                        <div class="standard-description">Justify the selection of specific control structures when tradeoffs involve implementation, readability, and program performance, and explain the benefits and drawbacks of choices made.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students learn about control structures (IF/THEN conditionals, sequences, loops) through pseudocode examples, understanding how explicit logic creates predictable outcomes.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">3B-AP-08</div>
+                        <div class="standard-description">Describe how artificial intelligence drives many software and physical systems.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students learn about traditional programming as a foundation for understanding AI: while traditional systems follow explicit rules, AI systems (explored in subsequent lessons) learn from patterns.</div>
+                    </div>
+                    
+                    <h3>Impacts of Computing</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">3A-IC-24</div>
+                        <div class="standard-description">Evaluate the ways computing impacts personal, ethical, social, economic, and cultural practices.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students explore how traditional programming creates societal infrastructure (calculators, traffic control, automated systems), understanding computing's role in modern life.</div>
+                    </div>
+                    
+                    <h3>Computing Systems</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">3A-CS-03</div>
+                        <div class="standard-description">Develop guidelines that convey systematic troubleshooting strategies that others can use to identify and fix errors.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students learn that traditional programming creates transparent, debuggable systems where problems can be traced to specific rules, understanding systematic problem-solving.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- C3 Framework -->
+            <div id="c3" class="standards-content">
+                <div class="standard-section">
+                    <h2>C3 Framework for Social Studies</h2>
+                    
+                    <div class="alignment-note">
+                        Lesson 2.1 develops analytical thinking and understanding of technological systems essential for civic participation and economic literacy in a technology-integrated society.
+                    </div>
+                    
+                    <h3>Dimension 2: Economics</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">D2.Eco.1.9-12</div>
+                        <div class="standard-description">Analyze how incentives influence choices that may result in policies with a range of costs and benefits for different groups.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students explore how traditional programming creates economic value through automation (calculators, traffic systems), understanding the incentives and choices behind technological development.</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">D2.Eco.14.9-12</div>
+                        <div class="standard-description">Analyze how changes in technology and resources affect the production and distribution of goods and services.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students learn how traditional programming technology enables automation and efficiency in production systems, understanding technological foundations of modern economics.</div>
+                    </div>
+                    
+                    <h3>Dimension 4: Communicating Conclusions and Taking Informed Action</h3>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">D4.1.9-12</div>
+                        <div class="standard-description">Construct arguments using precise and knowledgeable claims, with evidence from multiple sources.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Review questions require students to construct arguments about programming capabilities using evidence from multiple lesson examples (calculators, cat recognition, chess).</div>
+                    </div>
+                    
+                    <div class="standard-item">
+                        <div class="standard-code">D4.2.9-12</div>
+                        <div class="standard-description">Construct explanations using sound reasoning, correct sequence, examples, and details with significant and pertinent information and data.</div>
+                        <div class="lesson-mapping"><strong>Lesson 2.1 Alignment:</strong> Students construct explanations of programming concepts using systematic reasoning: from explicit instructions to deterministic outcomes to fundamental limitations.</div>
+                    </div>
+                </div>
+            </div>
+            
+        </div><!-- End content -->
+    </div><!-- End container -->
+    
+    <script>
+        function showStandards(value) {
+            // Hide all standards content
+            const allContent = document.querySelectorAll('.standards-content');
+            allContent.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show selected standards
+            if (value) {
+                const selectedContent = document.getElementById(value);
+                if (selectedContent) {
+                    selectedContent.classList.add('active');
+                }
             }
-            
-            displayDiv.innerHTML = html;
         }
     </script>
 </body>
